@@ -1153,6 +1153,7 @@ dependencies = [
     { name = "openai" },
     { name = "pandas" },
     { name = "python-dotenv" },
+    { name = "tiktoken" },
 ]
 
 [package.dev-dependencies]
@@ -1172,6 +1173,7 @@ requires-dist = [
     { name = "openai", specifier = ">=2.30.0" },
     { name = "pandas", specifier = ">=3.0.2" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
+    { name = "tiktoken", specifier = ">=0.12.0" },
 ]
 
 [package.metadata.requires-dev]
