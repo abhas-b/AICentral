@@ -10,9 +10,8 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 
 url = "https://en.wikipedia.org/wiki/Elon_Musk"
-headers = {
-    "User-Agent": "Mozilla/5.0"
-}
+headers = {"User-Agent": "Mozilla/5.0"}
+
 
 def get_content(url):
     response = requests.get(url, headers=headers, timeout=30)
@@ -30,6 +29,7 @@ def get_content(url):
         if text:
             return text
 
+
 def main():
     text = get_content(url=url)
 
@@ -39,13 +39,14 @@ def main():
     2. Two interesting facts about them
     """
 
-    summary_prompt_template = PromptTemplate(input_variables=["information"],
-                                             template=summary_template)
+    summary_prompt_template = PromptTemplate(
+        input_variables=["information"], template=summary_template
+    )
 
-    llm = ChatOpenAI(temperature=0, model='gpt-4o-mini')
+    llm = ChatOpenAI(temperature=0, model="gpt-4o-mini")
 
     chain = summary_prompt_template | llm
-    response = chain.invoke(input={'information':text})
+    response = chain.invoke(input={"information": text})
     print(response.content)
 
 
